@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Upcapto</title>
+  <meta name="description" content="Upcapto builds purpose-built operating systems for optical retail, restaurants and workforce, tied together by Kitty, one AI. Fewer tools, one source of truth." />
+  <meta name="theme-color" content="#05070d" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Upcapto" />
+  <meta property="og:title" content="Upcapto - business software, one core" />
+  <meta property="og:description" content="Purpose-built operating systems for optical retail, restaurants and workforce, tied together by Kitty, one AI." />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@500&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="assets/three.min.js"></script>
+  <script src="assets/three/EffectComposer.js"></script>
+  <script src="assets/three/ShaderPass.js"></script>
+  <script src="assets/three/MaskPass.js"></script>
+  <script src="assets/three/CopyShader.js"></script>
+  <script src="assets/three/LuminosityHighPassShader.js"></script>
+  <script src="assets/three/RenderPass.js"></script>
+  <script src="assets/three/UnrealBloomPass.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="wrap">
+      <div class="navpill">
+        <a class="brand" href="#top" aria-label="Upcapto home">
+          <img class="brand-logo" src="assets/logo.png" alt="Upcapto" width="509" height="109" />
+        </a>
+        <nav class="nav" aria-label="Main">
+          <a href="#products">Products</a>
+          <a href="#use-cases">Use cases</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="btn btn-ghost btn-sm" href="#products">Explore</a>
+          <a class="btn btn-primary btn-sm" href="#contact">Book a demo <span class="arw" aria-hidden="true">&#8599;</span></a>
+          <button class="menu-btn btn btn-ghost btn-sm" id="menuBtn" aria-label="Menu">Menu</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- INTRO OVERTURE: 3-beat full-screen scroll animation, hands off to the site -->
+  <section class="overture" id="overture" aria-label="Intro">
+    <div class="ov-stage">
+     <div class="ov-inner">
+      <canvas id="introCanvas" aria-hidden="true"></canvas>
+      <canvas id="orbitCanvas" aria-hidden="true"></canvas>
+
+      <div class="ov-cap" data-beat="0">
+        <p class="kick">The Upcapto platform</p>
+        <h1 class="thin">Run your business on <span class="grad">one core.</span></h1>
+        <p class="sub">Purpose-built operating systems for your industry, run by one AI. Fewer logins, one source of truth.</p>
+      </div>
+
+      <div class="ov-cap" data-beat="1">
+        <p class="kick">Built on one core</p>
+        <p class="thin">Every product shares one database,<br>one customer record, one AI.</p>
+      </div>
+
+      <div class="ov-cap" data-beat="2">
+        <p class="kick">Seven products &middot; one core</p>
+        <h2 class="thin">Where every part of your business works together.</h2>
+      </div>
+
+      <div class="ov-chips" aria-hidden="true">
+        <span class="ov-chip">OneOS</span>
+        <span class="ov-chip">Ambarion OS</span>
+        <span class="ov-chip">Hind Workforce OS</span>
+        <span class="ov-chip">AI Calling Agent</span>
+        <span class="ov-chip">GMB Manager</span>
+        <span class="ov-chip">Market Radar</span>
+      </div>
+
+      <div class="ov-scroll" aria-hidden="true"><span>SCROLL</span><span class="line"></span></div>
+     </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <!-- MARQUEE -->
+    <div class="wrap">
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span><b>OneOS</b> <i>/</i> <b>Ambarion OS</b> <i>/</i> <b>Hind Workforce OS</b> <i>/</i> <b>Kitty</b> <i>/</i> <b>AI Calling Agent</b> <i>/</i> <b>GMB Manager</b> <i>/</i> <b>Market Radar</b> <i>/</i></span>
+          <span><b>OneOS</b> <i>/</i> <b>Ambarion OS</b> <i>/</i> <b>Hind Workforce OS</b> <i>/</i> <b>Kitty</b> <i>/</i> <b>AI Calling Agent</b> <i>/</i> <b>GMB Manager</b> <i>/</i> <b>Market Radar</b> <i>/</i></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <section class="section" id="products">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="kicker">The suite</p>
+          <h2>Seven products, each for real work.</h2>
+          <p>Vertical operating systems built for how your industry runs, plus the AI and intelligence that work across all of it.</p>
+        </div>
+        <div class="bento">
+          <article class="cell feature reveal">
+            <div class="c-top"><span class="tag">Kitty</span><span class="status live">Live</span></div>
+            <h3>Your whole business, one conversation.</h3>
+            <p class="ext">Personal AI across the group</p>
+            <p>Ask Kitty anything and it acts across every Upcapto product, pulling the numbers, drafting the reply, and running the task on the system that owns it.</p>
+            <div class="kitty-orb" aria-hidden="true"></div>
+          </article>
+          <article class="cell col-3 reveal" data-d="1">
+            <div class="c-top"><span class="tag">OneOS</span><span class="status soon">Coming soon</span></div>
+            <h3>The optical chain, finally on one system.</h3>
+            <p class="ext">Optical retail OS · sold as <b>Opticommerce</b></p>
+            <p>POS, prescriptions, lab tracking, inventory and finance in one place. No re-keying a prescription across three tools, no frames quietly lost to stale stock.</p>
+          </article>
+          <article class="cell col-2 reveal">
+            <div class="c-top"><span class="tag">Ambarion OS</span><span class="status soon">Coming soon</span></div>
+            <h3>Counter to kitchen pass, in sync.</h3>
+            <p class="ext">Restaurant &amp; café OS</p>
+            <p>POS wired to a live kitchen display, recipe costing on every dish, and Zomato and Swiggy orders synced automatically.</p>
+          </article>
+          <article class="cell col-2 reveal" data-d="1">
+            <div class="c-top"><span class="tag">Hind Workforce OS</span><span class="status live">Live</span></div>
+            <h3>Attendance to payday, no spreadsheets.</h3>
+            <p class="ext">HR &amp; payroll</p>
+            <p>Attendance, leave and payroll on one system, live for a full team today, with zero double entry.</p>
+          </article>
+          <article class="cell col-2 reveal" data-d="2">
+            <div class="c-top"><span class="tag">AI Calling Agent</span><span class="status soon">Coming soon</span></div>
+            <h3>A caller that never clocks out.</h3>
+            <p class="ext">Business calling</p>
+            <p>A specialised AI agent for inbound and outbound business calls at scale, booking, following up and qualifying in your voice.</p>
+          </article>
+          <article class="cell col-3 reveal" data-d="1">
+            <div class="c-top"><span class="tag">GMB Manager</span><span class="status soon">Coming soon</span></div>
+            <h3>Own your reputation on Google.</h3>
+            <p class="ext">Reputation &amp; Google Business Profile</p>
+            <p>Manage every Google Business Profile, reply to reviews and read the insights that matter, across all your locations from one dashboard.</p>
+          </article>
+          <article class="cell col-3 reveal" data-d="2">
+            <div class="c-top"><span class="tag">Market Radar</span><span class="status soon">Coming soon</span></div>
+            <h3>Know your market before your competitor does.</h3>
+            <p class="ext">Market intelligence for India</p>
+            <p>Pricing, demand and competitor signals built for the Indian market, so you know where to move next.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section class="section" id="use-cases">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="kicker">Where it fits</p>
+          <h2>Built for how your industry works.</h2>
+        </div>
+        <div class="reveal">
+          <div class="tabs" role="tablist" aria-label="Use cases">
+            <button class="tab" role="tab" aria-selected="true" aria-controls="p-optical" id="t-optical">Optical retail</button>
+            <button class="tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="p-food" id="t-food">Restaurants &amp; cafés</button>
+            <button class="tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="p-work" id="t-work">Workforce</button>
+            <button class="tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="p-reach" id="t-reach">Reputation &amp; outreach</button>
+          </div>
+
+          <div class="panel" data-active id="p-optical" role="tabpanel" aria-labelledby="t-optical">
+            <div>
+              <h3>Optical retail, with OneOS</h3>
+              <p>Run an optical chain end to end, from the exam chair to the back office.</p>
+              <ul>
+                <li><span class="ck">+</span> One prescription, from the exam to the lab, with no re-keying</li>
+                <li><span class="ck">+</span> Live stock across every store, with reorder and stale-stock alerts</li>
+                <li><span class="ck">+</span> Finance that closes without a separate set of books</li>
+              </ul>
+            </div>
+            <div class="panel-visual"><div class="vbig">Opticommerce</div><p class="vsub">OneOS, sold externally as Opticommerce. One system for POS, clinic, lab, inventory and finance.</p></div>
+          </div>
+
+          <div class="panel" id="p-food" role="tabpanel" aria-labelledby="t-food" hidden>
+            <div>
+              <h3>Restaurants &amp; cafés, with Ambarion OS</h3>
+              <p>Keep orders, costs and delivery in step across every outlet.</p>
+              <ul>
+                <li><span class="ck">+</span> POS wired to a live kitchen display</li>
+                <li><span class="ck">+</span> Ingredient-level recipe costing on every dish</li>
+                <li><span class="ck">+</span> Zomato and Swiggy orders and stock, synced automatically</li>
+              </ul>
+            </div>
+            <div class="panel-visual"><div class="vbig">Launching soon</div><p class="vsub">Ambarion OS is nearing launch for restaurants and cafés.</p></div>
+          </div>
+
+          <div class="panel" id="p-work" role="tabpanel" aria-labelledby="t-work" hidden>
+            <div>
+              <h3>Workforce, with Hind Workforce OS</h3>
+              <p>Attendance to payday on one system, not a pilot.</p>
+              <ul>
+                <li><span class="ck">+</span> Attendance and leave that flow straight into payroll</li>
+                <li><span class="ck">+</span> Pay runs with zero double entry</li>
+                <li><span class="ck">+</span> Live today for a full team</li>
+              </ul>
+            </div>
+            <div class="panel-visual"><div class="vbig">71 live</div><p class="vsub">Hind Workforce OS runs payroll for a full team in production.</p></div>
+          </div>
+
+          <div class="panel" id="p-reach" role="tabpanel" aria-labelledby="t-reach" hidden>
+            <div>
+              <h3>Reputation &amp; outreach</h3>
+              <p>Win and keep customers with AI doing the legwork.</p>
+              <ul>
+                <li><span class="ck">+</span> AI Calling Agent for business calls at scale</li>
+                <li><span class="ck">+</span> GMB Manager for reviews and local insight</li>
+                <li><span class="ck">+</span> Market Radar for where to grow next</li>
+              </ul>
+            </div>
+            <div class="panel-visual"><div class="vbig">AI-run</div><p class="vsub">Kitty ties calling, reputation and market signals into one view.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT -->
+    <section class="section" id="impact">
+      <div class="wrap">
+        <div class="panel-dark impact-panel on-dark reveal">
+          <div class="sec-head">
+            <p class="kicker">Live today</p>
+            <h2>Already running in production.</h2>
+            <p>What is live at Upcapto right now, not a roadmap.</p>
+          </div>
+          <div class="stats">
+            <div class="stat"><div class="num" data-count="71">71</div><div class="lbl">employees run live on Hind Workforce OS</div></div>
+            <div class="stat"><div class="num" data-count="2">2</div><div class="lbl">products live in production today</div></div>
+            <div class="stat"><div class="num" data-count="1">1</div><div class="lbl">AI, Kitty, across your whole stack</div></div>
+            <div class="stat"><div class="num">24/7</div><div class="lbl">secure cloud, backed up automatically</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section" id="pricing">
+      <div class="wrap">
+        <div class="sec-head center reveal">
+          <p class="kicker">Pricing</p>
+          <h2>Pricing that follows your business.</h2>
+          <p>Switch on one product or the whole suite. You pay for what you run, and Kitty comes with every plan.</p>
+        </div>
+        <div class="price-grid">
+          <article class="price-card reveal">
+            <h3>Single OS</h3>
+            <p class="price-for">Start with one product.</p>
+            <div class="price"><span class="amt">Custom</span></div>
+            <ul class="price-list">
+              <li>Any one Upcapto product</li>
+              <li>Kitty AI, built in</li>
+              <li>Unlimited users</li>
+              <li>Onboarding and migration</li>
+              <li>Email and chat support</li>
+            </ul>
+            <a class="btn btn-ghost" href="#contact">Book a demo</a>
+          </article>
+          <article class="price-card featured reveal" data-d="1">
+            <span class="price-badge">Most popular</span>
+            <h3>Connected Suite</h3>
+            <p class="price-for">Run the core of your business.</p>
+            <div class="price"><span class="amt">Custom</span></div>
+            <ul class="price-list">
+              <li>Up to any four products</li>
+              <li>Shared data core across products</li>
+              <li>Kitty AI, full access</li>
+              <li>Priority support</li>
+              <li>Integrations and automations</li>
+            </ul>
+            <a class="btn btn-primary" href="#contact">Book a demo <span class="arw" aria-hidden="true">&#8599;</span></a>
+          </article>
+          <article class="price-card reveal" data-d="2">
+            <h3>Enterprise</h3>
+            <p class="price-for">Scale across every location.</p>
+            <div class="price"><span class="amt">Let&rsquo;s talk</span></div>
+            <ul class="price-list">
+              <li>The full seven-product suite</li>
+              <li>Multi-location and role controls</li>
+              <li>Dedicated onboarding and a success manager</li>
+              <li>SLAs and custom integrations</li>
+              <li>Security and data-residency options</li>
+            </ul>
+            <a class="btn btn-ghost" href="#contact">Talk to sales</a>
+          </article>
+        </div>
+        <p class="price-note reveal">Every plan includes Kitty, the shared data core, product updates and onboarding. We quote per business after a short walkthrough.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="kicker">FAQ</p>
+          <h2>Questions, answered.</h2>
+        </div>
+        <div class="faq reveal">
+          <details class="faq-item">
+            <summary>What exactly is Upcapto?</summary>
+            <div class="faq-a"><p>Upcapto is a software company that builds operating systems for whole businesses. Each product runs a part of your business, and Kitty, our AI, works across all of them on one shared data core.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Do I have to buy everything at once?</summary>
+            <div class="faq-a"><p>No. Start with the one product you need today and switch on the rest when you are ready. Because everything shares one core, there is nothing to migrate or re-enter later.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>What is &ldquo;one core&rdquo;, and why does it matter?</summary>
+            <div class="faq-a"><p>Every Upcapto product reads and writes the same database and customer records. A sale, a stock move, a payroll entry and a support ticket all stay in sync automatically, so your numbers always agree.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Which products are live right now?</summary>
+            <div class="faq-a"><p>Hind Workforce OS (HR and payroll) and Kitty are live in production today. Ambarion OS for restaurants is about 80% built, OneOS for optical (sold as Opticommerce) about 50%, and AI Calling Agent, GMB Manager and Market Radar are in build or scoping.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Is my data safe?</summary>
+            <div class="faq-a"><p>Your data is yours. It lives in one secure cloud, is backed up automatically, and is never shared across businesses. Enterprise plans add data-residency and access-control options.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Will it work with the tools I already use?</summary>
+            <div class="faq-a"><p>Yes. Products connect to the tools and aggregators you rely on, for example Zomato and Swiggy for restaurants or Google Business Profile for reputation, and Kitty can automate the work between them.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>How do I get started?</summary>
+            <div class="faq-a"><p>Book a walkthrough. We map your operations onto the platform, start you on one product, and bring the rest online as you grow.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="panel-dark cta-box on-dark reveal">
+          <h2>See Upcapto running on your business.</h2>
+          <p>Book a walkthrough and we will map your operations onto the platform, starting with one product or the full suite.</p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="mailto:hello@upcapto.com">Book a demo <span class="arw" aria-hidden="true">&#8599;</span></a>
+            <a class="btn btn-ghost" href="#products">Browse products</a>
+          </div>
+          <p class="cta-mail">Reach us at <b>hello@upcapto.com</b></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer on-dark">
+    <div class="wrap footer-inner">
+      <div>
+        <a class="brand" href="#top"><img class="brand-logo footer-logo" src="assets/logo.png" alt="Upcapto" width="509" height="109" /></a>
+        <p class="footer-meta">© <span id="year">2026</span> Upcapto. Business software on one core.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#products">Products</a>
+        <a href="#use-cases">Use cases</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Demo request modal -->
+  <div class="modal" id="demoModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="demoTitle">
+      <button class="modal-close" type="button" data-close aria-label="Close">&times;</button>
+      <div id="demoBody">
+        <p class="kicker">Book a demo</p>
+        <h3 id="demoTitle">See Upcapto on your business.</h3>
+        <p class="modal-sub">Tell us a little about your business and we will set up a walkthrough.</p>
+        <!-- ============================================================
+             DEMO FORM SETUP (Formspree)
+             1. Create a free form at https://formspree.io (New form).
+             2. Copy its endpoint, e.g. https://formspree.io/f/abcdwxyz
+             3. Paste it into data-endpoint below (replace the placeholder).
+             4. Submit the form once and confirm the email Formspree sends you.
+             Until an endpoint is set, submitting opens a prefilled email instead.
+             Full steps: see FORMSPREE-SETUP.md
+             ============================================================ -->
+        <form id="demoForm" data-endpoint="https://formspree.io/f/your-form-id" novalidate>
+          <!-- Formspree helpers: email subject + spam honeypot (do not remove) -->
+          <input type="hidden" name="_subject" id="d-subject" value="New demo request from the Upcapto site" />
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+          <div class="field"><label for="d-name">Name</label><input id="d-name" name="name" type="text" required autocomplete="name" placeholder="Your name" /></div>
+          <div class="field"><label for="d-email">Work email</label><input id="d-email" name="email" type="email" required autocomplete="email" placeholder="you@business.com" /></div>
+          <div class="field"><label for="d-biz">Business name</label><input id="d-biz" name="business" type="text" required placeholder="Your business" /></div>
+          <div class="field"><label for="d-phone">Phone (optional)</label><input id="d-phone" name="phone" type="tel" autocomplete="tel" placeholder="+91" /></div>
+          <div class="field">
+            <label for="d-product">Which product?</label>
+            <select id="d-product" name="product">
+              <option>Not sure yet</option>
+              <option>OneOS / Opticommerce (optical retail)</option>
+              <option>Ambarion OS (restaurants &amp; cafés)</option>
+              <option>Hind Workforce OS (HR &amp; payroll)</option>
+              <option>Kitty (AI)</option>
+              <option>AI Calling Agent</option>
+              <option>GMB Manager</option>
+              <option>Market Radar</option>
+            </select>
+          </div>
+          <div class="field"><label for="d-msg">Anything else? (optional)</label><textarea id="d-msg" name="message" rows="3" placeholder="What would you like to see?"></textarea></div>
+          <p class="form-error" id="demoError" hidden></p>
+          <button class="btn btn-primary" type="submit" id="demoSubmit">Request demo</button>
+          <p class="form-fine">We will only use this to contact you about a demo.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
