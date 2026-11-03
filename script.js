@@ -297,7 +297,7 @@
   // ======================= SITE INTERACTIONS =======================
 
   // Bento cursor spotlight
-  Array.prototype.forEach.call(document.querySelectorAll(".cell"), function (cell) {
+  Array.prototype.forEach.call(document.querySelectorAll(".cell, .cap"), function (cell) {
     cell.addEventListener("pointermove", function (e) {
       var r = cell.getBoundingClientRect();
       cell.style.setProperty("--mx", (e.clientX - r.left) + "px");
