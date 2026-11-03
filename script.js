@@ -79,32 +79,63 @@
       var cx = ballSX || W / 2, cy = ballSY || H * centerYFactor();
       var chipP = enable ? clamp((p - 0.6) / 0.16, 0, 1) : 0;
 
-      // concentric elliptical orbit rings (behind the chips)
+      // --- 3D tilted orbital system: perspective + depth shading ---
+      var sinI = 0.46, cosI = 0.888;                 // plane inclination
+      var PP = 0.62;                                   // perspective strength
+      var spin = t * 0.06 + (enable ? p * 0.5 : 0);    // slow precession
+      var maxZ = 0.56 * cosI;                          // depth normaliser
+      function proj(R, a) {
+        var A = a + spin;
+        var lx = R * Math.cos(A), lz = R * Math.sin(A);
+        var zz = (lz * cosI) / W;                      // +back / -front
+        var persp = 1 / (1 + zz * PP);
+        return { x: cx + lx * persp, y: cy - lz * sinI * persp, fr: -zz, persp: persp };
+      }
+
+      var steps = W < 700 ? 40 : 64;
       if (octx) {
         octx.clearRect(0, 0, W, H);
         if (chipP > 0.002) {
+          // soft inclined base-disc glow for depth
+          octx.save();
+          octx.translate(cx, cy); octx.scale(1, sinI + 0.14); octx.translate(-cx, -cy);
+          var g = octx.createRadialGradient(cx, cy, 0, cx, cy, 0.52 * W);
+          g.addColorStop(0, "rgba(70,150,255," + (chipP * 0.11).toFixed(3) + ")");
+          g.addColorStop(1, "rgba(70,150,255,0)");
+          octx.fillStyle = g;
+          octx.beginPath(); octx.arc(cx, cy, 0.52 * W, 0, Math.PI * 2); octx.fill();
+          octx.restore();
+
+          octx.lineCap = "round";
           for (var k = 0; k < allR.length; k++) {
-            var erx = allR[k] * W, ery = allR[k] * W * 0.46;
-            octx.beginPath();
-            octx.ellipse(cx, cy, erx, ery, 0, 0, Math.PI * 2);
-            octx.strokeStyle = "rgba(188,208,255," + (chipP * 0.7).toFixed(3) + ")";
-            octx.lineWidth = 1.5; octx.stroke();
+            var R = allR[k] * W, P0 = proj(R, 0);
+            for (var s = 1; s <= steps; s++) {
+              var P1 = proj(R, (s / steps) * Math.PI * 2);
+              var t01 = (((P0.fr + P1.fr) * 0.5) / maxZ) * 0.5 + 0.5;   // 0 back .. 1 front
+              octx.beginPath();
+              octx.moveTo(P0.x, P0.y); octx.lineTo(P1.x, P1.y);
+              octx.lineWidth = 0.8 + 1.7 * t01;
+              octx.shadowBlur = t01 > 0.72 ? 9 : 0;
+              if (t01 > 0.72) octx.shadowColor = "rgba(90,180,255,0.9)";
+              octx.strokeStyle = "rgba(150,190,255," + (chipP * (0.10 + 0.5 * t01)).toFixed(3) + ")";
+              octx.stroke();
+              P0 = P1;
+            }
           }
+          octx.shadowBlur = 0;
         }
       }
 
-      // product chips riding the rings
+      // product chips riding the tilted rings in 3D
       if (!chips.length) return;
-      var rot = t * 0.26 + (enable ? p * Math.PI * 0.8 : 0);
       for (var i = 0; i < chips.length; i++) {
         var ri = i % ringR.length;
-        var rx = ringR[ri] * W, ry = ringR[ri] * W * 0.46;
-        var ang = rot + (i / chips.length) * Math.PI * 2 + ri * 0.6;
-        var x = cx + rx * Math.cos(ang), y = cy + ry * Math.sin(ang);
-        var depth = (Math.sin(ang) + 1) / 2, sc = 0.84 + 0.22 * depth, el = chips[i];
-        el.style.transform = "translate(" + x + "px," + y + "px) translate(-50%,-50%) scale(" + sc.toFixed(3) + ")";
-        el.style.opacity = (chipP * (0.5 + 0.5 * depth)).toFixed(3);
-        el.style.zIndex = String(3 + Math.round(depth * 20));
+        var baseA = (i / chips.length) * Math.PI * 2 + ri * 0.7;
+        var P = proj(ringR[ri] * W, baseA + t * 0.16);
+        var fr01 = (P.fr / maxZ) * 0.5 + 0.5, sc = 0.74 + 0.34 * P.persp, el = chips[i];
+        el.style.transform = "translate(" + P.x + "px," + P.y + "px) translate(-50%,-50%) scale(" + sc.toFixed(3) + ")";
+        el.style.opacity = (chipP * (0.3 + 0.7 * fr01)).toFixed(3);
+        el.style.zIndex = String(2 + Math.round(fr01 * 30));
       }
     }
     function handoff() {
